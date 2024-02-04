@@ -1,0 +1,226 @@
+@font-face {
+    font-family: inter;
+    src: url(../font/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+
+body {
+    background: hsl(249, 7%, 12%);
+    background: #202020;
+    background: #000000;
+
+/*    background-image: linear-gradient(to right, #80808020 1px, transparent 1px),
+        linear-gradient(to bottom, #80808020 1px, transparent 1px);
+    background-size: 19px 19px;
+*/
+    background-image: radial-gradient(hsl(249, 7%, 7%) 2px, transparent 0);
+    background-size: 20px 20px;
+    background-position: -10px -10px;
+
+    color: #F0F0F0;
+    font-family: inter;
+    text-rendering: optimizeLegibility;
+    line-height: 29px;
+    font-size: 17px;
+
+    font-size: 13px;
+    line-height: 23px;
+}
+
+b {
+    color: #FFFFFF;
+}
+
+h2 {
+    line-height: 0px;
+}
+
+.vmenu {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 23px;
+    user-select: none;
+}
+
+.vmenu-category {
+    display: inline-block;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 13em;
+    padding-left: 1em;
+    text-align: right;
+    cursor: default;
+    vertical-align: top;
+}
+
+.vmenu-content-zone {
+    display: inline-block;
+}
+
+.vmenu-content {
+    display: inline-block;
+    border-left: 1px solid #808080;
+    padding-left: 11px;
+    margin-left: 5px;
+    cursor: pointer;
+    vertical-align: top;
+    margin-bottom: 23px;
+}
+
+.vmenu-block {
+    width: auto;
+}
+
+.vmenu-item:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    transition: font-weight ease-out 150ms;
+}
+
+.vmenu-item {
+    color: #F0F0F0;
+    transition: font-weight ease-out 150ms;
+}
+
+.vmenu-item:active {
+    margin-left: -1px;
+}
+
+.vmenu-item::after {
+    display: block;
+    content: attr(text);
+    font-weight: bold;
+    height: 0px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#left-panel>*:first-child {
+    margin-top: auto;
+}
+
+#left-panel>*:last-child {
+    margin-bottom: auto;
+}
+
+#screen-col {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#left-panel {
+    padding-right: 23px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    display: inline-flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    flex-shrink: 0;
+}
+
+#left-panel h1 {
+    padding: 1em 2em;
+    text-align: center;
+}
+
+#workspace {
+    box-sizing: border-box;
+    /*border: 1px solid red;*/
+    flex-grow: 1;
+    height: 100vh;
+}
+
+
+
+#workspace {
+    padding: 10vh calc(5vw + 23px) 10vh 5vw;
+    display: inline-flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+.space {
+    margin-top: 5em;
+    color: #E0E0E0;
+}
+
+.space-top-line {
+    border-top: 1px solid #808080;
+    height: 11px;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+}
+
+.space-bottom-line {
+    border-bottom: 1px solid #808080;
+    height: 11px;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+}
+
+.space-title {
+    text-align: right;
+    padding-right: 1em;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.space-content {
+    padding-left: 5px;
+/*    font-family: Monoid;
+    font-size: 12px;*/
+}
+
+#workspace>*:first-child {
+    margin-top: auto;
+}
+
+#workspace>*:last-child {
+    margin-bottom: auto;
+}
+
+#topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    min-height: 3px;
+    width: 100vw;
+    background: #FF8000;
+    color: black;
+    /*font-weight: bold;
+    /*text-shadow: 0 1px white;*/
+    font-family: 'lucida console';
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 1em;
+}
+
+
+#bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    min-height: 3px;
+    width: 100vw;
+    background: #FF8000;
+    color: black;
+    /*font-weight: bold;
+    text-shadow: 0 1px white;*/
+    font-family: 'Lucida console';
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 1em;
+}
