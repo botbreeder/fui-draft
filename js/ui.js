@@ -107,6 +107,9 @@ function addSpace(name, type, content) {
     <div class="space-top-line"></div>
     <div class="space-content">${content}</div>
     <div class="space-bottom-line"></div>
+    <div class="space-buttons">
+        <span class="space-button">change width</span> · <span class="space-button">move up</span> · <span class="space-button">move down</span> · <span class="space-button">close</span>
+    </div>
     </div>
     `;
 

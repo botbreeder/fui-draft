@@ -5,19 +5,18 @@
 
 
 body {
-    background: hsl(249, 7%, 12%);
-    background: #202020;
+    background: hsl(210, 20%, 3%);
     background: #000000;
 
 /*    background-image: linear-gradient(to right, #80808020 1px, transparent 1px),
         linear-gradient(to bottom, #80808020 1px, transparent 1px);
     background-size: 19px 19px;
 */
-    background-image: radial-gradient(hsl(249, 7%, 7%) 2px, transparent 0);
+    background-image: radial-gradient(#1c242c 1px, transparent 0);
     background-size: 20px 20px;
     background-position: -10px -10px;
 
-    color: #F0F0F0;
+    color: #d9e4ec;
     font-family: inter;
     text-rendering: optimizeLegibility;
     line-height: 29px;
@@ -25,10 +24,6 @@ body {
 
     font-size: 13px;
     line-height: 23px;
-}
-
-b {
-    color: #FFFFFF;
 }
 
 h2 {
@@ -45,7 +40,7 @@ h2 {
 .vmenu-category {
     display: inline-block;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #c1d8ed;
     width: 13em;
     padding-left: 1em;
     text-align: right;
@@ -59,7 +54,7 @@ h2 {
 
 .vmenu-content {
     display: inline-block;
-    border-left: 1px solid #808080;
+    border-left: 1px solid #4d5a68;
     padding-left: 11px;
     margin-left: 5px;
     cursor: pointer;
@@ -72,14 +67,14 @@ h2 {
 }
 
 .vmenu-item:hover {
-    color: #FFFFFF;
+    color: #e9f0f5;
     font-weight: bold;
-    transition: font-weight ease-out 150ms;
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
 .vmenu-item {
-    color: #F0F0F0;
-    transition: font-weight ease-out 150ms;
+    color: #d9e4ec;
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
 .vmenu-item:active {
@@ -128,6 +123,7 @@ h2 {
 #left-panel h1 {
     padding: 1em 2em;
     text-align: center;
+    color: #e9f0f5;
 }
 
 #workspace {
@@ -152,34 +148,50 @@ h2 {
 
 .space {
     margin-top: 5em;
-    color: #E0E0E0;
+    color: #d9e4ec;
 }
 
 .space-top-line {
-    border-top: 1px solid #808080;
+    border-top: 1px solid #4d5a68;
     height: 11px;
-    border-left: 1px solid #808080;
-    border-right: 1px solid #808080;
+    border-left: 1px solid #4d5a68;
+    border-right: 1px solid #4d5a68;
 }
 
 .space-bottom-line {
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #4d5a68;
     height: 11px;
-    border-left: 1px solid #808080;
-    border-right: 1px solid #808080;
+    border-left: 1px solid #4d5a68;
+    border-right: 1px solid #4d5a68;
 }
 
 .space-title {
     text-align: right;
     padding-right: 1em;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #e9f0f5;
 }
 
 .space-content {
     padding-left: 5px;
 /*    font-family: Monoid;
     font-size: 12px;*/
+}
+
+.space-buttons {
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.space-button {
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
+    color: #fb8704;
+}
+
+.space-button:hover {
+    color: #fbcb49;
+    font-weight: bold;
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
 #workspace>*:first-child {
@@ -197,7 +209,7 @@ h2 {
     z-index: 2;
     min-height: 3px;
     width: 100vw;
-    background: #FF8000;
+    background: #fb8704;
     color: black;
     /*font-weight: bold;
     /*text-shadow: 0 1px white;*/
@@ -215,7 +227,7 @@ h2 {
     z-index: 2;
     min-height: 3px;
     width: 100vw;
-    background: #FF8000;
+    background: #fb8704;
     color: black;
     /*font-weight: bold;
     text-shadow: 0 1px white;*/
@@ -224,3 +236,5 @@ h2 {
     line-height: 14px;
     padding-left: 1em;
 }
+
+
