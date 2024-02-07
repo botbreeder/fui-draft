@@ -99,10 +99,10 @@ setCmdPanel({
 
 
 
-function addSpace(name, type, content) {
+function addSpace(name, col, type, content) {
 
     let html = `
-    <div class="space space-type-${type}">
+    <div class="space ${col}" space-type="${type}">
     <div class="space-title"><h2>${name}</h2></div>
     <div class="space-top-line"></div>
     <div class="space-content">${content}</div>
@@ -117,13 +117,31 @@ function addSpace(name, type, content) {
 }
 
 
-addSpace("overview", "markdown", `
+addSpace("overview", "one-col", "markdown", `
 <p>Io is a dynamic prototype-based programming language. The ideas in Io are mostly inspired by Smalltalk[1] (all values are objects), Self[2] (prototype-based), NewtonScript[3] (differential inheritance), Act1[4] (actors and futures for concurrency), Lisp[5] (code is a runtime inspectable / modifiable tree) and Lua[6] (small, embeddable).</p>
 `);
 
-//for (let i = 0; i < 10; i++)
-addSpace("perspective", "markdown", `
+for (let i = 0; i < 10; i++)
+addSpace("perspective "+i, Math.random()<0.75 ? "one-col" : "two-col", "markdown", `
 <p>The focus of programming language research for the last thirty years has been to combine the expressive power of high level languages like Smalltalk and the performance of low level languages like C. The results have neither been as fast as C or as expressive as Smalltalk. Io's purpose is to refocus attention on expressiveness by exploring higher level dynamic programming features with greater levels of runtime flexibility combined with simplified programming syntax and semantics.</p>
-<p>In Io, all values are objects (of which, anything can change at runtime, including slots, methods and inheritance), all code is made up of expressions (which are runtime inspectable and modifiable) and all expressions are made up of dynamic message sends (including assignment and control structures). Execution contexts themselves are objects and activatable objects such as methods/blocks and functions are unified into blocks with assignable scope. Concurrency is made more easily manageable through actors and implemented using coroutines for scalability. </p>
+<p>${"In Io, all values are objects (of which, anything can change at runtime, including slots, methods and inheritance), all code is made up of expressions (which are runtime inspectable and modifiable) and all expressions are made up of dynamic message sends (including assignment and control structures). Execution contexts themselves are objects and activatable objects such as methods/blocks and functions are unified into blocks with assignable scope. Concurrency is made more easily manageable through actors and implemented using coroutines for scalability.".substring(0, Math.floor(500*Math.random())).repeat(Math.floor(5*Math.random()))} </p>
 `);
 
+
+var sortable;
+
+setTimeout(() => {
+    
+    sortable = new Sortable(document.getElementById("workspace"), {
+        handle: ".space-title h2",
+        easing: "cubic-bezier(1, 0, 0, 1)",
+        animation: 300,
+        direction: function(evt, target, dragEl) {
+            if (target !== null && target.className.includes('two-col') && dragEl.className.includes('two-col')) {
+                return 'horizontal';
+            }
+            return 'vertical';
+        }
+    })
+
+}, 500);
