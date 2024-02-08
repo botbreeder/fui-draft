@@ -1,31 +1,10 @@
 
-/*
-setTimeout(function () {
-
-
-    const pane = new Tweakpane.Pane({
-        container: document.getElementById("tweakpane")
-    });
-
-
-    const PARAMS = {
-        factor: 123,
-        title: 'hello',
-        color: '#ff0055',
-    };
-
-    pane.addInput(PARAMS, 'factor');
-    pane.addInput(PARAMS, 'title');
-    pane.addInput(PARAMS, 'color');
-}, 500);
-*/
 
 
 
 function setCmdPanel(o) {
 
     let html = `<h1 contenteditable>${o.title}</h1><div class="vmenu">`;
-    //html = `<div class="vmenu">`;
 
     for (let section of o.sections) {
 
@@ -119,6 +98,7 @@ function addSpace(name, col, type, content) {
 
 addSpace("overview", "one-col", "markdown", `
 <p>Io is a dynamic prototype-based programming language. The ideas in Io are mostly inspired by Smalltalk[1] (all values are objects), Self[2] (prototype-based), NewtonScript[3] (differential inheritance), Act1[4] (actors and futures for concurrency), Lisp[5] (code is a runtime inspectable / modifiable tree) and Lua[6] (small, embeddable).</p>
+<p>As an anecdote from testing (since you asked): I worked on a community site with 700k monthly visits where the main audience was non-computer savvy users. We used 12px Verdana for body type and 14px-16px Arial for titles. Occasionally we would drop to 11px Verdana in grey for less important text. When doing usability tests on the site, we received feedback not about the size of the text, but about how the surrounding colours of the design made it feel like you were staring into a lamp. We interpreted this as the site being too bright and adjusted the contrast of the entire design to be less bright. Partially due to these changes and partially due to changes in the navigational structure, we saw a significant month-on-month increase in pageviews per visitor.</p>
 `);
 
 for (let i = 0; i < 10; i++)

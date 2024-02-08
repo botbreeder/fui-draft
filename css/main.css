@@ -3,32 +3,25 @@
     src: url(../font/Inter-VariableFont_slnt\,wght.ttf);
 }
 
+:root {
+    --lines: #959ca8;
+}
 
 body {
-    background: hsl(210, 20%, 3%);
-    background: #000000;
-
-/*    background-image: linear-gradient(to right, #80808020 1px, transparent 1px),
-        linear-gradient(to bottom, #80808020 1px, transparent 1px);
-    background-size: 19px 19px;
-*/
-    background-image: radial-gradient(#1c242c 1px, transparent 0);
+    background: #181818;
+    background-image: radial-gradient(#22343b 1px, transparent 0);
     background-size: 20px 20px;
     background-position: -10px -10px;
-
-    color: #d9e4ec;
+    color: #cfd9e2;
     font-family: inter;
     text-rendering: optimizeLegibility;
-    line-height: 29px;
-    font-size: 17px;
-
-    font-size: 13px;
     line-height: 23px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .vmenu {
     display: inline-block;
-    font-size: 13px;
     line-height: 23px;
     user-select: none;
 }
@@ -50,9 +43,9 @@ body {
 
 .vmenu-content {
     display: inline-block;
-    border-left: 1px solid #4d5a68;
+    border-left: 1px solid var(--lines);
     padding-left: 11px;
-    margin-left: 5px;
+    margin-left: 7px;
     cursor: pointer;
     vertical-align: top;
     margin-bottom: 23px;
@@ -63,18 +56,18 @@ body {
 }
 
 .vmenu-item:hover {
-    color: #e9f0f5;
+    color: #FFFFFF;
     font-weight: bold;
     transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
 .vmenu-item {
-    color: #d9e4ec;
     transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
 .vmenu-item:active {
     margin-left: -1px;
+    font-style: italic;
 }
 
 .vmenu-item::after {
@@ -103,7 +96,7 @@ body {
 
 
 #left-panel {
-    padding-right: 23px;
+    padding-right: 3vw;
     padding-top: 10vh;
     padding-bottom: 10vh;
     display: inline-flex;
@@ -124,15 +117,8 @@ body {
 
 #workspace {
     box-sizing: border-box;
-    /*border: 1px solid red;*/
     flex-grow: 1;
-    height: 100vh;
-}
-
-
-
-#workspace {
-    padding: 10vh calc(3vw + 23px) 10vh 3vw;
+    padding: 10vh calc(3vw + 23px) 10vh 23px;
     display: inline-flex;
     flex-flow: row;
     flex-wrap: wrap;
@@ -145,8 +131,6 @@ body {
 }
 
 .space {
-    color: #c3d4dc;
-    float: left;
     display: inline-block;
     margin: 0 2%;
     padding-top: 5em;
@@ -161,17 +145,17 @@ body {
 }
 
 .space-top-line {
-    border-top: 1px solid #4d5a68;
+    border-top: 1px solid var(--lines);
     height: 11px;
-    border-left: 1px solid #4d5a68;
-    border-right: 1px solid #4d5a68;
+    border-left: 1px solid var(--lines);
+    border-right: 1px solid var(--lines);
 }
 
 .space-bottom-line {
-    border-bottom: 1px solid #4d5a68;
+    border-bottom: 1px solid var(--lines);
     height: 11px;
-    border-left: 1px solid #4d5a68;
-    border-right: 1px solid #4d5a68;
+    border-left: 1px solid var(--lines);
+    border-right: 1px solid var(--lines);
 }
 
 .space-title {
@@ -181,7 +165,7 @@ body {
 }
 
 .space-title h2 {
-    padding: 0 1em;
+    padding: 3px 1em;
     cursor: move;
     background-color: transparent;
     vertical-align: bottom;
@@ -196,24 +180,27 @@ body {
 
 .space-content {
     padding-left: 5px;
-/*    font-family: Monoid;
-    font-size: 12px;*/
 }
 
 .space-buttons {
     cursor: pointer;
     padding-left: 5px;
+    user-select: none;
 }
 
 .space-button {
     transition: font-weight ease-out 150ms, color ease-out 150ms;
-    color: #fb8704;
+    color: #fb9c04;
 }
 
 .space-button:hover {
     color: #fbcb49;
     font-weight: bold;
     transition: font-weight ease-out 150ms, color ease-out 150ms;
+}
+
+.space-button:active {
+    font-style: italic;
 }
 
 #workspace>*:first-child {
@@ -223,40 +210,3 @@ body {
 #workspace>*:last-child {
     margin-bottom: auto;
 }
-
-#topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    min-height: 3px;
-    width: 100vw;
-    background: #fb8704;
-    color: black;
-    /*font-weight: bold;
-    /*text-shadow: 0 1px white;*/
-    font-family: 'lucida console';
-    font-size: 12px;
-    line-height: 14px;
-    padding-left: 1em;
-}
-
-
-#bottombar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    min-height: 3px;
-    width: 100vw;
-    background: #fb8704;
-    color: black;
-    /*font-weight: bold;
-    text-shadow: 0 1px white;*/
-    font-family: 'Lucida console';
-    font-size: 12px;
-    line-height: 14px;
-    padding-left: 1em;
-}
-
-
