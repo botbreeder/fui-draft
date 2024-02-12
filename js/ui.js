@@ -1,80 +1,99 @@
 
 
+var ui = {
+    tweakpanes: {}
+};
 
 
-function setCmdPanel(o) {
 
-    let html = `<h1 contenteditable>${o.title}</h1><div class="vmenu">`;
+setTimeout(function () {
 
-    for (let section of o.sections) {
 
-        html += `
-        <div class="vmenu-block">
-        <div class="vmenu-category">${section.name}</div>
-        <div class="vmenu-content">
-        `;
+    addCmdPanel("test pane 1", {
+        callback: function(pane) {
 
-        for (let item of section.content) {
-            html += `<div text="${item}" class="vmenu-item">${item}</div>
-            `;
+
+            const PARAMS = {
+                factor: 123,
+                title: 'hello',
+                checked: true,
+            };
+        
+            for (let i = 0; i < 2; i++) {
+                let f = pane.addFolder({ title: "connect" });
+                f.addInput(PARAMS, 'factor');
+                f.addInput(PARAMS, 'title');
+                f.addInput(PARAMS, 'checked');
+                f.addButton({
+                    title: 'Increment',
+                    label: 'counter',   // optional
+                  });
+            }
+        
         }
-        html += `</div></div>`;
-    }
+    })
 
-    html += `</div>`;
 
-    document.getElementById("left-panel").innerHTML = html;
+    addCmdPanel("test pane 2", {
+        callback: function(pane) {
+
+
+            const PARAMS = {
+                factor: 123,
+                title: 'hello',
+                checked: true,
+            };
+        
+            for (let i = 0; i < 1; i++) {
+                let f = pane.addFolder({ title: "connect" });
+                f.addInput(PARAMS, 'factor');
+                f.addInput(PARAMS, 'title');
+                f.addInput(PARAMS, 'checked');
+                f.addButton({
+                    title: 'Increment',
+                    label: 'counter',   // optional
+                  });
+            }
+        
+        }
+    })
+
+}, 500);
+
+
+
+
+
+function addCmdPanel(name, o) {
+
+    let html =  `
+        <div class="vmenu-block">
+            <div class="vmenu-category">${name}</div>
+                <div class="vmenu-content">
+                    <div class="tweakpane" id="tp-${name}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    setTimeout(function() {
+
+        ui.tweakpanes[name] = new Tweakpane.Pane({
+            container: document.getElementById("tp-"+name)
+        });
+        
+        if (o.preset) ui.tweakpanes[name].importPreset(o.preset);
+
+        if (o.callback) o.callback(ui.tweakpanes[name]);
+
+    }, 0);
+    
+    document.querySelector("#left-panel .vmenu").innerHTML += html;
 }
 
 
 
-setCmdPanel({
-    title: "Semantify3D",
-    sections: [
-        {
-            name: "clipboard",
-            content: [
-                "paste",
-                "copy",
-                "cut",
-                "reproduce style"
-            ]
-        },
-        {
-            name: "font",
-            content: [
-                "font family",
-                "font size",
-                "increase font size",
-                "decrease font size",
-                "bold",
-                "italic",
-                "underline",
-                "background color",
-                "font color"
-            ]
-        },
-        {
-            name: "text alignment",
-            content: [
-                "align left",
-                "center",
-                "align right",
-                "wrap line",
-                "fusion cells"
-            ]
-        },
-        {
-            name: "format",
-            content: [
-                "monetary",
-                "percent",
-                "increase decimals",
-                "decrease decimals"
-            ]
-        }
-    ]
-})
 
 
 

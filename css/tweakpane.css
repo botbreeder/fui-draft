@@ -1,0 +1,61 @@
+:root {
+    --tp-base-background-color: hsla(0, 0%, 10%, 0);
+    --tp-base-shadow-color: hsla(0, 0%, 0%, 0);
+    --tp-button-background-color: transparent;
+    --tp-button-background-color-active: transparent;
+    --tp-button-background-color-focus: transparent;
+    --tp-button-background-color-hover: transparent;
+    --tp-button-foreground-color: var(--foreground);
+    --tp-container-background-color: hsla(0, 0%, 0%, 0);
+    --tp-container-background-color-active: hsla(0, 0%, 0%, 0);
+    --tp-container-background-color-focus: hsla(0, 0%, 0%, 0);
+    --tp-container-background-color-hover: hsla(0, 0%, 0%, 0);
+    --tp-container-foreground-color: #5c84a6 ;
+    --tp-groove-foreground-color: var(--foreground);
+    --tp-input-background-color: #22344580;
+    --tp-input-background-color-active: #223445C0;
+    --tp-input-background-color-focus: #223445C0;
+    --tp-input-background-color-hover: #223445C0;
+    --tp-input-foreground-color: var(--foreground);
+    --tp-label-foreground-color: var(--foreground);
+    --tp-monitor-background-color: hsla(0, 0%, 0%, 0);
+    --tp-monitor-foreground-color: var(--foreground);
+    --tp-font-family: inter;
+}
+
+/*
+div.vmenu-content {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+*/
+div.vmenu-content * {
+    /*color: #cfd9e2E0;*/
+    font-family: inter;
+    text-rendering: optimizeLegibility;
+    line-height: 23px;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.tp-fldv_i {
+    visibility: hidden;
+}
+
+.tp-fldv_c {
+    padding-left: 0 !important;
+}
+
+.tp-fldv_t {
+    width: 100%;
+    color: #fb9c04;
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
+}
+
+.tp-fldv_t:hover {
+    color: #fbcb49;
+    font-weight: bold;
+    transition: font-weight ease-out 150ms, color ease-out 150ms;
+}

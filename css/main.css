@@ -4,7 +4,9 @@
 }
 
 :root {
-    --lines: #959ca8;
+    /*--lines: #959ca8;*/
+    --lines: #778896;
+    --foreground: #cfd9e2E0;
 }
 
 body {
@@ -12,7 +14,7 @@ body {
     background-image: radial-gradient(#000000 1px, transparent 0);
     background-size: 20px 20px;
     background-position: -10px -10px;
-    color: #cfd9e2;
+    color: #cfd9e2E0;
     font-family: inter;
     text-rendering: optimizeLegibility;
     line-height: 23px;
@@ -31,7 +33,7 @@ body {
     display: inline-block;
     font-weight: bold;
     color: #cfd9e2;
-    width: 13em;
+    width: 11em;
     padding-left: 1em;
     text-align: right;
     cursor: default;
@@ -45,9 +47,8 @@ body {
 .vmenu-content {
     display: inline-block;
     border-left: 1px solid var(--lines);
-    padding-left: 11px;
+    padding-left: 5px;
     margin-left: 7px;
-    cursor: pointer;
     vertical-align: top;
     margin-bottom: 23px;
 }
@@ -56,19 +57,18 @@ body {
     width: auto;
 }
 
-.vmenu-item:hover {
+.vmenu-item:hover, .tp-btnv_t:hover {
     color: #FFFFFF;
     font-weight: bold;
     transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
-.vmenu-item {
+.vmenu-item, .tp-btnv_t {
     transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
-.vmenu-item:active {
-    margin-left: -1px;
-    font-style: italic;
+.vmenu-item:active, .tp-btnv_t:active {
+    text-decoration: underline;
 }
 
 .vmenu-item::after {
@@ -166,7 +166,7 @@ body {
 }
 
 .space-title h2 {
-    padding: 3px 1em;
+    padding: 3px 1em 7px 0;
     cursor: move;
     background-color: transparent;
     vertical-align: bottom;
@@ -201,7 +201,7 @@ body {
 }
 
 .space-button:active {
-    font-style: italic;
+    text-decoration: underline;
 }
 
 #workspace>*:first-child {
