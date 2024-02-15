@@ -1,64 +1,9 @@
 
 
 var ui = {
-    tweakpanes: {}
+    tweakpanes: {},
+    spaces: {}
 };
-
-
-
-setTimeout(function () {
-
-
-    addCmdPanel("test pane 1", {
-        callback: function(pane) {
-
-
-            const PARAMS = {
-                factor: 123,
-                title: 'hello',
-                checked: true,
-            };
-        
-            for (let i = 0; i < 2; i++) {
-                let f = pane.addFolder({ title: "connect" });
-                f.addInput(PARAMS, 'factor');
-                f.addInput(PARAMS, 'title');
-                f.addInput(PARAMS, 'checked');
-                f.addButton({
-                    title: 'Increment',
-                    label: 'counter',   // optional
-                  });
-            }
-        
-        }
-    })
-
-
-    addCmdPanel("test pane 2", {
-        callback: function(pane) {
-
-
-            const PARAMS = {
-                factor: 123,
-                title: 'hello',
-                checked: true,
-            };
-        
-            for (let i = 0; i < 1; i++) {
-                let f = pane.addFolder({ title: "connect" });
-                f.addInput(PARAMS, 'factor');
-                f.addInput(PARAMS, 'title');
-                f.addInput(PARAMS, 'checked');
-                f.addButton({
-                    title: 'Increment',
-                    label: 'counter',   // optional
-                  });
-            }
-        
-        }
-    })
-
-}, 500);
 
 
 
@@ -66,7 +11,7 @@ setTimeout(function () {
 
 function addCmdPanel(name, o) {
 
-    let html =  `
+    let html = `
         <div class="vmenu-block">
             <div class="vmenu-category">${name}</div>
                 <div class="vmenu-content">
@@ -77,18 +22,18 @@ function addCmdPanel(name, o) {
         </div>
     `;
 
-    setTimeout(function() {
+    setTimeout(function () {
 
         ui.tweakpanes[name] = new Tweakpane.Pane({
-            container: document.getElementById("tp-"+name)
+            container: document.getElementById("tp-" + name)
         });
-        
+
         if (o.preset) ui.tweakpanes[name].importPreset(o.preset);
 
         if (o.callback) o.callback(ui.tweakpanes[name]);
 
     }, 0);
-    
+
     document.querySelector("#left-panel .vmenu").innerHTML += html;
 }
 
@@ -100,42 +45,63 @@ function addCmdPanel(name, o) {
 function addSpace(name, col, type, content) {
 
     let html = `
-    <div class="space ${col}" space-type="${type}">
+    <div class="space ${col}" space-type="${type}" space-name="${name}">
     <div class="space-title"><h2>${name}</h2></div>
     <div class="space-top-line"></div>
     <div class="space-content">${content}</div>
     <div class="space-bottom-line"></div>
     <div class="space-buttons">
-        <span class="space-button">change width</span> · <span class="space-button">move up</span> · <span class="space-button">move down</span> · <span class="space-button">close</span>
+        <span class="space-button" onclick="changeSpaceWidth(this)">change width</span> · 
+        <span class="space-button" onclick="moveSpace(this, -1)">move up</span> · 
+        <span class="space-button" onclick="moveSpace(this, +1)">move down</span> · 
+        <span class="space-button">close</span>
     </div>
     </div>
     `;
 
     document.getElementById("workspace").innerHTML += html;
+
+    ui.spaces[name] = { name, col, type, content };
 }
 
 
-addSpace("overview", "one-col", "markdown", `
-<p>Io is a dynamic prototype-based programming language. The ideas in Io are mostly inspired by Smalltalk[1] (all values are objects), Self[2] (prototype-based), NewtonScript[3] (differential inheritance), Act1[4] (actors and futures for concurrency), Lisp[5] (code is a runtime inspectable / modifiable tree) and Lua[6] (small, embeddable).</p>
-<p>As an anecdote from testing (since you asked): I worked on a community site with 700k monthly visits where the main audience was non-computer savvy users. We used 12px Verdana for body type and 14px-16px Arial for titles. Occasionally we would drop to 11px Verdana in grey for less important text. When doing usability tests on the site, we received feedback not about the size of the text, but about how the surrounding colours of the design made it feel like you were staring into a lamp. We interpreted this as the site being too bright and adjusted the contrast of the entire design to be less bright. Partially due to these changes and partially due to changes in the navigational structure, we saw a significant month-on-month increase in pageviews per visitor.</p>
-`);
 
-for (let i = 0; i < 10; i++)
-addSpace("perspective "+i, Math.random()<0.75 ? "one-col" : "two-col", "markdown", `
-<p>The focus of programming language research for the last thirty years has been to combine the expressive power of high level languages like Smalltalk and the performance of low level languages like C. The results have neither been as fast as C or as expressive as Smalltalk. Io's purpose is to refocus attention on expressiveness by exploring higher level dynamic programming features with greater levels of runtime flexibility combined with simplified programming syntax and semantics.</p>
-<p>${"In Io, all values are objects (of which, anything can change at runtime, including slots, methods and inheritance), all code is made up of expressions (which are runtime inspectable and modifiable) and all expressions are made up of dynamic message sends (including assignment and control structures). Execution contexts themselves are objects and activatable objects such as methods/blocks and functions are unified into blocks with assignable scope. Concurrency is made more easily manageable through actors and implemented using coroutines for scalability.".substring(0, Math.floor(500*Math.random())).repeat(Math.floor(5*Math.random()))} </p>
-`);
+function changeSpaceWidth(e) {
+    let el = e.parentElement.parentElement;
+
+    el.className = el.className == "space one-col" ? "space two-col" : "space one-col";
+
+}
+
+
+function moveSpace(e, direction) {
+
+    let name = e.parentElement.parentElement.getAttribute("space-name");
+
+    let list = sortable.toArray();
+
+    let index = list.indexOf(name);
+    let replacementIndex = index + direction;
+
+    if (replacementIndex>=0 && replacementIndex<list.length) {
+        list[index] = list[replacementIndex];
+        list[replacementIndex] = sortable.toArray()[index];
+        sortable.sort(list);
+    }
+}
+
 
 
 var sortable;
 
 setTimeout(() => {
-    
+
     sortable = new Sortable(document.getElementById("workspace"), {
         handle: ".space-title h2",
         easing: "cubic-bezier(1, 0, 0, 1)",
         animation: 300,
-        direction: function(evt, target, dragEl) {
+        dataIdAttr: "space-name",
+        direction: function (evt, target, dragEl) {
             if (target !== null && target.className.includes('two-col') && dragEl.className.includes('two-col')) {
                 return 'horizontal';
             }
