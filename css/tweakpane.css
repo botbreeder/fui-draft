@@ -35,7 +35,7 @@ div.vmenu-content * {
     font-family: inter;
     text-rendering: optimizeLegibility;
     line-height: 23px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     letter-spacing: 1px;
 }
@@ -69,24 +69,27 @@ button.tp-btnv_b, .tp-btnv_b, .tp-btnv {
     height: 23px;
 }
 
-select.tp-lstv_s {
+/*select.tp-lstv_s {
     padding: 0;
     margin: 0;
     appearance: none;
     outline-color: transparent;
     border: none;
-}
+}*/
 
-select.tp-lstv_s * {
-    appearance: none;
+select.tp-lstv_s option {
+    font-family: inter, 'Segoe UI', Tahoma, Geneva, Verdana, Roboto, sans-serif;
+    color: black;
+/*    appearance: none;
     outline-color: transparent;
-    box-sizing: border-box;
-    border: none;
+    border: none !important;
+    outline: none !important;
     color: #fb9c04;
     background-color: #202020;
-    padding: 0;
-    margin: 0;
-    font-family: inter, 'Segoe UI', Tahoma, Geneva, Verdana, Roboto, sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    box-shadow: none !important;
+    -moz-appearance:toolbox;*/
 }
 
 

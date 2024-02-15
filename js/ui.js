@@ -53,8 +53,7 @@ function addSpace(name, col, type, content) {
     <div class="space-buttons">
         <span class="space-button" onclick="changeSpaceWidth(this)">change width</span> · 
         <span class="space-button" onclick="moveSpace(this, -1)">move up</span> · 
-        <span class="space-button" onclick="moveSpace(this, +1)">move down</span> · 
-        <span class="space-button">close</span>
+        <span class="space-button" onclick="moveSpace(this, +1)">move down</span>
     </div>
     </div>
     `;
