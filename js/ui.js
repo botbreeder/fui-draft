@@ -7,6 +7,14 @@ var ui = {
 
 
 
+document.onkeypress = function (e) {
+    e = e || window.event;
+
+    if (e.code == "Space")
+        if (document.activeElement.tagName != "INPUT")
+            document.getElementById("cmdline").focus();
+};
+
 
 
 function addCmdPanel(name, o) {
