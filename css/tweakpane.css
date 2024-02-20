@@ -53,6 +53,10 @@ div.vmenu-content * {
     transition: font-weight ease-out 150ms, color ease-out 150ms;
 }
 
+.tp-fldv_t:active {
+    text-decoration: underline;
+}
+
 .tp-fldv_t:hover {
     color: #fbcb49;
     font-weight: bold;

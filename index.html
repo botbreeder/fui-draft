@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="css/augmented-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/tweakpane.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script src="js/libs/tweakpane.min.js"></script>
-    <script src="js/libs/Sortable.min.js"></script>
 
 </head>
 
@@ -18,9 +16,12 @@
             <div class="vmenu">
             </div>
         </div>
-        <div id="workspace">
+        <div id="workspace" class="dragscroll" nochilddrag>
         </div>
     </div>
+
+    <div id="top-vanish"></div>
+    <div id="bottom-vanish"></div>
 
     <div id="toolbar-container">
         <div id="toolbar" data-augmented-ui="both bl-clip br-clip">
@@ -36,6 +37,9 @@
         <textarea id="cmdline" placeholder="type command (spacebar)"></textarea>
     </div>
 
+    <script src="js/libs/tweakpane.min.js"></script>
+    <script src="js/libs/Sortable.min.js"></script>
+    <script src="js/libs/dragscroll.js"></script>
 
     <script src="js/ui.js"></script>
     <script src="js/dev.js"></script>
